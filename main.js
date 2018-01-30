@@ -1,49 +1,41 @@
 console.log('connected');
-// setteing the array
+// setting the array
 var cityNames = ['nyc' , 'la' , 'austin' , 'sf' , 'sydney'];
-// setting the empty variable for aray function
-var optionTags = ""
-// adding the array onto it's self in order to wrap each of the strings in the array in an option tag
+
+// appending the array onto it's self in order to wrap each of the strings in the array in an option tag
 cityNames.forEach(function(name) {
-  optionTags += '<option>'  + name.toUpperCase() + "</option>"
+  $('#city-type').append('<option>'  + name + "</option>");
 })
-// appending to the selection description
-$('#city-type').append(optionTags);
-
-
-
 
 // event listner for the drop down menu
-$('#city-type').change(function(){
+$('#city-type').change(function(event){
 // setting the variable to get the value of the input
-  var valueInput = $('#city-type').val()
+  var valueInput = $('#city-type').val();
 // if statement for each possible input
-  if ( valueInput === 'NYC') {
-    $('body').removeClass()
+  if ( valueInput === cityNames[0] ) {
+    $('body').removeClass();
     $('body').addClass('nyc');
   }
-    else if ( valueInput === 'LA') {
-    $('body').removeClass()
+    else if ( valueInput === cityNames[1] ) {
+    $('body').removeClass();
     $('body').addClass('la');
   }
-    else if ( valueInput === 'AUSTIN') {
-    $('body').removeClass()
+    else if ( valueInput === cityNames[2] ) {
+    $('body').removeClass();
     $('body').addClass('austin');
   }
-    else if ( valueInput === 'SF') {
-    $('body').removeClass()
+    else if ( valueInput === cityNames[3] ) {
+    $('body').removeClass();
     $('body').addClass('sf');
   }
-    else if ( valueInput === 'SYDNEY') {
+    else if ( valueInput === cityNames[4] ) {
     $('body').removeClass()
     $('body').addClass('sydney');
   }
+  // If no input go to default image
     else {
-    $('body').removeClass()
+    $('body').removeClass();
     $('body').addClass('cityPix');
   }
-
-
-
 
 })
